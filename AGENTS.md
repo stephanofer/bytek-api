@@ -1,34 +1,33 @@
-# Cloudflare Workers
+# Bytek API
 
-STOP. Your knowledge of Cloudflare Workers APIs and limits may be outdated. Always retrieve current documentation before any Workers, KV, R2, D1, Durable Objects, Queues, Vectorize, AI, or Agents SDK task.
+Bytek is a new technology modern company specializing in software development and IT consulting. This repository contains the codebase for the Bytek API.
 
-## Docs
+## Auto-invoke Skills
 
-- https://developers.cloudflare.com/workers/
-- MCP: `https://docs.mcp.cloudflare.com/mcp`
+When performing these actions, ALWAYS invoke the corresponding skill FIRST:
 
-For all limits and quotas, retrieve from the product's `/platform/limits/` page. eg. `/workers/platform/limits`
+| Action                                                                | Skill           |
 
-## Commands
+| --------------------------------------------------------------------- | --------------- |
 
-| Command | Purpose |
-|---------|---------|
-| `npx wrangler dev` | Local development |
-| `npx wrangler deploy` | Deploy to Cloudflare |
-| `npx wrangler types` | Generate TypeScript types |
 
-Run `wrangler types` after changing bindings in wrangler.jsonc.
+## Non-negotiables
 
-## Node.js Compatibility
+- Never use barrel files 
 
-https://developers.cloudflare.com/workers/runtime-apis/nodejs/
+- Always use path aliases instead of imports
 
-## Errors
+- Always use pnpm as the package manager
 
-- **Error 1102** (CPU/Memory exceeded): Retrieve limits from `/workers/platform/limits/`
-- **All errors**: https://developers.cloudflare.com/workers/observability/errors/
+## Tech Stack
 
-## Product Docs
+| Component  | Location           | Technology                 |
 
-Retrieve API references and limits from:
-`/kv/` · `/r2/` · `/d1/` · `/durable-objects/` · `/queues/` · `/vectorize/` · `/workers-ai/` · `/agents/`
+| ---------- | ------------------ | -------------------------- |
+
+| API         | `src/`             | Hono, Zod, Cloudflare Workers, Cloudflare R2, Cloudflare AI, Cloudflare D1 with Drizzle  |
+| Error Monitoring | Sentry | Sentry SDK |
+
+## Directory Structure
+
+
