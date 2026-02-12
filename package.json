@@ -4,14 +4,30 @@
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate:local": "wrangler d1 migrations apply bytek-db --local",
+		"db:migrate:remote": "wrangler d1 migrations apply bytek-db --remote",
+		"db:studio": "drizzle-kit studio",
+		"db:push": "drizzle-kit push",
+		"db:seed": "node scripts/seed.mjs",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"typecheck": "tsc --noEmit",
+		"openapi:generate": "node scripts/generate-openapi.mjs"
 	},
 	"dependencies": {
+		"@hono/standard-validator": "^0.2.2",
+		"@hono/zod-openapi": "^1.2.1",
+		"@scalar/hono-api-reference": "^0.9.40",
 		"drizzle-orm": "^0.45.1",
-		"hono": "^4.11.9"
+		"hono": "^4.11.9",
+		"hono-openapi": "^1.2.0",
+		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.12.11",
+		"@standard-schema/spec": "^1.1.0",
 		"@types/node": "^25.2.3",
 		"drizzle-kit": "^0.31.9",
 		"vitest": "3.2.4",

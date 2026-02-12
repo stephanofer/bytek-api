@@ -5,14 +5,27 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "types": [
-        "./worker-configuration.d.ts",
-        "node"
-    ]
+      "./worker-configuration.d.ts"
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "@app": ["index"],
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"],
+      "@schemas/*": ["schemas/*"],
+      "@models/*": ["models/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@core/*": ["core/*"],
+      "@db": ["db/index"],
+      "@db/*": ["db/*"],
+      "@exceptions/*": ["exceptions/*"],
+      "@crons/*": ["crons/*"]
+    }
   },
+  "include": ["src/**/*", "worker-configuration.d.ts"],
+  "exclude": ["node_modules", "dist", ".wrangler"]
 }
